@@ -1,37 +1,20 @@
-## Welcome to GitHub Pages
+Here is my first blog showing my personal experience of getting FreeBSD working on a my Thinkpad T450s in hopes that it will serve someone else.
 
-You can use the [editor on GitHub](https://github.com/SamuelGogarty/SamuelGogarty.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Before we get started on the actual installation and configuration process, some useful notes to consider that can differ on your personal machine;
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+My hardware inventory on this T450s, consists of:
+	Processor: Intel(R) i5-5300U @ 2.3 GHz with 2 cores and 4 threads.
+	Memory: 12 GB DDR4, 4 GB soldered, 8 GB soketed. no company given.
+	Graphics: Intel(R) HD 5500 (Broadwell GT2) Driver(s): i915kms, drm.
+	Storage: 128 GB HITACHI(R) SSD
+	Display: 1600x900 TN built in Thinkpad display and a 3648x1152 Samsung(R) VGA monitor
+	Wireless: Intel Dual Band Wireless AC 7265 Driver(s): if_iwm, iwm7265fw, iwm7265Dfw.
 
-### Markdown
+For more information regarding the mentioned device drivers:
+	i915kms, drm: [https://wiki.freebsd.org/Intel_GPU](https://wiki.freebsd.org/Intel_GPU)
+	if_iwm, iwm7265fw, iwm7265Dfw: [https://www.freebsd.org/cgi/man.cgi?query=iwm&sektion=4](https://www.freebsd.org/cgi/man.cgi?query=iwm&sektion=4)
+	
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+This page assumes you have the base system of FreeBSD 11.0-RELEASE installed on your machine.
+If you do not see [https://www.freebsd.org/doc/handbook/bsdinstall-pre.html](https://www.freebsd.org/doc/handbook/bsdinstall-pre.html)
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/SamuelGogarty/SamuelGogarty.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
