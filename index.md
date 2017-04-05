@@ -7,7 +7,7 @@ Before we get started on the actual installation and configuration process, some
 ##Hardware
 
 My hardware inventory on this T450s, consists of:
-'''markdown
+markdown
 	Processor: Intel(R) i5-5300U @ 2.3 GHz with 2 cores and 4 threads.
 	Memory: 12 GB DDR4, 4 GB soldered, 8 GB soketed. no company given.
 	Graphics: Intel(R) HD 5500 (Broadwell GT2) Driver(s): i915kms, drm.
@@ -24,4 +24,22 @@ For more information regarding the mentioned device drivers:
 
 This page assumes you have the base system of FreeBSD 11.0-RELEASE installed on your machine.
 If you do not see [https://www.freebsd.org/doc/handbook/bsdinstall-pre.html](https://www.freebsd.org/doc/handbook/bsdinstall-pre.html)
+
+```markdown
+Syntax highlighted code block
+
+# Header 1
+## Header 2
+### Header 3
+
+- Bulleted
+- List
+
+1. Numbered
+2. List
+
+**Bold** and _Italic_ and `Code` text
+
+[Link](url) and ![Image](src)
+```
 
