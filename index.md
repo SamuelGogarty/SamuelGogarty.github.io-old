@@ -88,11 +88,44 @@ Then all is fine, if you **don't** see that you can attempt to attach the device
 ```markdown
 ifconfig wlan create wlandev iwm0
 ```
+Again, __iwm0__ is a variable, in case you are using a different driver other then iwm.
 
-To do this you can scan for networks with:
+If you see that the device has attached then you have successfully gotten your wireless card functional.
+
+If you see a error that looks something like:
 
 ```markdown
-ifconfig wlan0 up scan
+SOIFCONFIG: Device not configured
+```
+Then you might have made a typo in /boot/loader.conf or you have the wrong driver loaded altogether.
+
+Assuming you now are able to run the scan command mentioned earlier, take your ssid as shown in the can results and the password of the network and create a new file named wpa_supplicant.conf in /etc/.
+The ultimate path of it should be /etc/wpa_supplicant.conf. Then put your network info inside this file, to do this follow:
+
+First create/open the file with:
+
+```markdown
+ee /etc/wpa_supplicant.conf
+```
+How for your network info:
+
+```markdown
+network={
+    ssid="your network name goes here"
+    psk="your password goes here"
+}
+```
+Now restart the network daemon in order to achieve net access:
+
+```markdown
+service netif restart
+```
+Now test your connection:
+
+```markdown
+ping 8.8.8.8
 ```
 
+If you get packets pack from google then we can move onto the next step, if you don't the friendly people in #freebsd on the irc network irc.freenode.net, will gladly help.
 
+Next we will be getting the intel HD 5500 graphics card functional, this will be a far longer and more complicated step then what we just did, but not impossible.
