@@ -14,6 +14,15 @@ markdown
 	Storage: 128 GB HITACHI(R) SSD
 	Display: 1600x900 TN built in Thinkpad display and a 3648x1152 Samsung(R) VGA monitor
 	Wireless: Intel Dual Band Wireless AC 7265 Driver(s): if_iwm, iwm7265fw, iwm7265Dfw.
+```markdown
+- Processor: Intel(R) i5-5300U @ 2.3 GHz with 2 cores and 4 threads.
+- Memory: 12 GB DDR4, 4 GB soldered, 8 GB soketed. no company given.
+- Graphics: Intel(R) HD 5500 (Broadwell GT2) Driver(s): i915kms, drm.
+- Storage: 128 GB HITACHI(R) SSD.
+- Display: 1600x900 TN built in Thinkpad display and a 3648x1152 Samsung(R) VGA monitor.
+- Wireless: Intel Dual Band Wireless AC 7265 Driver(s): if_iwm, iwm7265fw, iwm7265Dfw.
+```
+
 
 ##For more info
 
