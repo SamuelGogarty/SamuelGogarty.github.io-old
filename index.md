@@ -128,4 +128,43 @@ ping 8.8.8.8
 
 If you get packets pack from google then we can move onto the next step, if you don't the friendly people in #freebsd on the irc network irc.freenode.net, will gladly help.
 
+Next quick step is just making sure that the pkg binary tree is working, to do this run:
+
+```markdown
+pkg update
+```
+As root. 
+If you would like to use the ports tree instead run:
+
+```markdown
+portsnap fetch && portsnap extract
+```
+
 Next we will be getting the intel HD 5500 graphics card functional, this will be a far longer and more complicated step then what we just did, but not impossible.
+
+Lets get started on getting the Intel HD 5500 graphics chip fully working.
+
+Just like the wireless card the Intel HD 5500 graphics chip does not work out-of-the-box in the base system.
+
+The driver for the intel HD 5500 graphics chip among others is called i915. Unlike iwm, you need to recompile the whole base system.
+
+To do this, first you need to download the source tree of drm-next graphics stack.
+You can find documentation for this [here](https://github.com/FreeBSDDesktop/freebsd-base-graphics/wiki).
+
+But i'm going to put it here in order to keep everything in one place, of course.
+
+```markdown
+git clone https://github.com/FreeBSDDesktop/freebsd-base-graphics.git -b drm-next
+```
+now you need install llvm40 as a dependancy.
+
+```markdown
+pkg install llvm40
+```
+
+Or via ports:
+
+```markdown
+cd /usr/ports/devel/llvm40/ && make clean install
+``` 
+
