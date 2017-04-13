@@ -152,19 +152,144 @@ To do this, first you need to download the source tree of drm-next graphics stac
 You can find documentation for this [here](https://github.com/FreeBSDDesktop/freebsd-base-graphics/wiki).
 
 But i'm going to put it here in order to keep everything in one place, of course.
-
-```markdown
-git clone https://github.com/FreeBSDDesktop/freebsd-base-graphics.git -b drm-next
-```
-now you need install llvm40 as a dependancy.
+First, install llvm40:
 
 ```markdown
 pkg install llvm40
 ```
-
 Or via ports:
 
 ```markdown
 cd /usr/ports/devel/llvm40/ && make clean install
-``` 
+```
 
+Now download the drm-next source tree:
+
+```markdown
+git clone https://github.com/FreeBSDDesktop/freebsd-base-graphics.git -b drm-next
+``` 
+*NOTE* When I installed drm-next branch on a 12.0-CURRENT install it resulted in a nightmare of a kernel panic, make sure you are using 11.0-RELEASE which i had success with.
+
+When the branch is done cloning, go into the directory:
+
+```markdown
+cd FreeBSDDesktop/freebsd-base-graphics
+```
+Normally I would say this is a good chance to strip unused drivers from the kernel config in order to:
+* Use less memory on boot
+* Decrease the time taken to boot past the bios
+
+If this is your first time doing this then I will suggest you do **not** do this now in order to turn down the chance of getting a kernel panic afterwards, so for **now** we will be conservative with our drivers.
+
+If you wish to do this now anyway, well [here](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/kernelconfig-custom-kernel.html).
+
+How long this part will take will vary depending on what hardware you are using in terms of CPU mainly. (# of cores, # of threads, clock speed, cache.)
+
+Lets say if you are using the intel i5 5300U, it has 2 cores and 4 threads. To utilise all cores and all threads to make these commands as fast as possible the following would apply:
+
+Run as root.
+
+```markdown
+make -j4 buildworld -s
+```
+In this step you are making the "world" of your installation, the userspace. 
+As you can see -j4 represents that im using 4 cores, or 2 cores and 4 threads. If you have 8 cores and 16 threads or 16 cores and 16 threads it would both be -j16.
+
+You can find the docs for this procedure in the drm-next wiki [here](https://github.com/FreeBSDDesktop/freebsd-base-graphics/wiki).
+
+Now build the kernel:
+
+```markdown
+make -j4 buildkernel -s
+```
+
+Now install the kernel.
+
+```markdown
+sudo make -j4 installkernel -s
+```
+
+run mergemaster(*yawn*):
+
+```markdown
+mergemaster -p -m .
+```
+
+Install the world:
+
+```markdown
+make installworld -s
+```
+
+Merge again:
+
+```markdown
+mergemaster -m
+```
+
+You can find the following procedure in the handbook [here](https://www.freebsd.org/doc/handbook/makeworld.html).
+Now to prevent error as little as possible let's safely exit the system:
+
+```markdown
+shutdown now
+```
+
+Next, if you use **UFS** as your FS, run these commands:
+
+```markdown
+mount -u /
+mount -a -t ufs
+swapon -a
+```
+
+If you are cool and use **ZFS** like me, run these commands:
+
+```markdown
+zfs set readonly=off zroot
+zfs mount -a
+```
+
+Great. Now if you use a keyboard mapping besides U.S. English you can assign it with:
+
+```markdown
+kbdmap
+```
+
+If your CMOS battery is set to local time and is incorrect, you will want to fix this.
+
+To check your cmos time run:
+
+```markdown
+date
+```
+
+If the outputted time is incorrect you can correct this by running the following:
+
+```markdown
+adjkerntz -i
+```
+
+Amazing, time to reboot:
+
+```markdown
+reboot
+```
+
+Can you boot? thats a very good thing, you probably noticed your TTY is at a much higher resolution now, next is just one more step until we move on.
+
+Lets delete your old libraries and make sure ports is functional:
+
+```markdown
+make delete-old-libs
+```
+
+Here you will be selecting "y" for alot of files, be patient it will come to an end.
+
+Now make sure ports is up to date:
+
+```markdown
+portsnap update
+```
+It should probably be fine, if not you dodged a bullet.
+
+Next i will going through getting Xorg working and autostarting along with a WM, a DM and my personal actions to tweak and edit to my liking for reference to edit and tweak as you like.
