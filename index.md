@@ -1,5 +1,5 @@
 
-Here is my first blog showing my personal experience of getting FreeBSD working on a my Thinkpad T450s in hopes that it will serve someone else.
+Here is my first blog showing my personal experience of getting FreeBSD working on my Thinkpad T450s in hopes that it will serve someone else.
 
 Before we get started on the actual installation and configuration process, some useful notes to consider that can differ on your personal machine;
 
@@ -17,8 +17,7 @@ My hardware inventory on this T450s, consists of:
 
 This page assumes you have the base system of FreeBSD 11.0-RELEASE installed on your machine, if you do not see [here](https://www.freebsd.org/doc/handbook/bsdinstall-pre.html).
 
-I will also be assuming you are using the same model of thinkpad as me, a thinkpad T450s if you havent caught on.
-similar models may have a very similar process if not the same.
+I will also be assuming you are using the same model of thinkpad as me, a thinkpad T450s if you havent caught on. Similar models may have a very similar process if not the same.
 
 This guide will be taking care of these major things:
 * Getting the iwm wireless driver working.
@@ -26,11 +25,11 @@ This guide will be taking care of these major things:
 * Installing and Configuring Xorg.
 * Configuring audio.
 * Configuring synaptics trackpad driver.
-* Fine tuning of the FreeBSD kernel.
+* Fine-tuning of the FreeBSD kernel.
 
-Since you will need a internet connection to take care of any task obviously the first step is getting WI-FI to work.
+Since you will need a internet connection to take care of any task, obviously the first step is getting Wi-Fi to work.
 This step can vary wildly in success, my T450s came with a special snowflake of a realtek chip that isn't even supported by the FreeBSD [rtwn](https://www.freebsd.org/cgi/man.cgi?query=rtwn&sektion=4&manpath=freebsd-release-ports) driver.
-Luckily however i had a T450 lying around with a intel wireless card. Specifically the one listed in the hardware inventory, which I was able to get working pretty easily.
+Luckily however I had a T450 lying around with an Intel wireless card. Specifically the one listed in the hardware inventory, which I was able to get working pretty easily.
 
 In order to get this chip working you need the iwm driver either compiled into your kernel or loaded as a kernel module. It is **not** included by default.
 
@@ -41,7 +40,7 @@ The iwm driver supports the following wireless cards:
 * Intel Dual Band Wireless AC 7265
 * Intel Dual Band Wireless AC 8260
 
-This is easily accessible documentation about this driver and how to get it working [here](https://www.freebsd.org/cgi/man.cgi?query=iwm&sektion=4), but I wanted to keep everything in one place so i listed it here as well.
+There is easily accessible documentation about this driver and how to get it working [here](https://www.freebsd.org/cgi/man.cgi?query=iwm&sektion=4), but I wanted to keep everything in one place so I listed it here as well.
 
 Since we are going to compile the kernel twice anyway lets just take the easy route and just load it as a module.
 To do this let's open /boot/loader.conf with a text editor, the default preinstalled editor is [ee](https://www.freebsd.org/cgi/man.cgi?query=ee&sektion=1).
