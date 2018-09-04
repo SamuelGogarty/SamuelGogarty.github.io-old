@@ -1,3 +1,6 @@
+***OUTDATED*** I wrote this back when I was 16, the drivers for the intel graphics for broadwell and up can now be installed via ports/pkg on the STABLE release of FreeBSD.
+
+
 
 Here is my first blog showing my personal experience of getting FreeBSD working on a my Thinkpad T450s in hopes that it will serve someone else.
 
@@ -290,6 +293,4 @@ Now make sure ports is up to date:
 ```markdown
 portsnap update
 ```
-It should probably be fine, if not you dodged a bullet.
-
-Next i will going through getting Xorg working and autostarting along with a WM, a DM and my personal actions to tweak and edit to my liking for reference to edit and tweak as you like.
+your graphics driver should start working on the next reboot.
