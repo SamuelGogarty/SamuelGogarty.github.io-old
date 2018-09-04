@@ -1,4 +1,7 @@
-***OUTDATED*** I wrote this back when I was 16, the drivers for the intel graphics for broadwell and up can now be installed via ports/pkg on the STABLE release of FreeBSD.
+
+***OUTDATED*** 
+
+***I wrote this back when I was 16, the drivers for the intel graphics for broadwell and up can now be installed via ports/pkg on the STABLE release of FreeBSD.***
 
 
 
