@@ -1,9 +1,7 @@
 
 ***OUTDATED*** 
 
-***I wrote this back when I was 16, the drivers for the intel graphics for broadwell and up can now be installed via ports/pkg on the STABLE release of FreeBSD.***
-
-
+****I wrote this back when I was 16, the drivers for the intel graphics for broadwell and up can now be installed via ports/pkg on the STABLE release of FreeBSD.****
 
 
 Here is my first blog showing my personal experience of getting FreeBSD working on a my Thinkpad T450s in hopes that it will serve someone else.
