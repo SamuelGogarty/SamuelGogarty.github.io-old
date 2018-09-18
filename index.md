@@ -5,6 +5,7 @@
 
 
 
+
 Here is my first blog showing my personal experience of getting FreeBSD working on a my Thinkpad T450s in hopes that it will serve someone else.
 
 Before we get started on the actual installation and configuration process, some useful notes to consider that can differ on your personal machine;
